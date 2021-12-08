@@ -1,0 +1,21 @@
+.button {
+    border: 1px solid rgb(204, 202, 202);
+    border-radius: 3px;
+    outline: none;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #fff;
+}
+.item:last-of-type {
+    margin-right: 0px;
+}
+
+.button:active {
+    background-color: aqua;
+}
+.buttomList {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 10px;
+}
