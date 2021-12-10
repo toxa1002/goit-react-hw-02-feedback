@@ -3,14 +3,14 @@ import s from './FeedbackOptions.module.css';
 import Button from '../Button';
 
 
-function FeedbackOptions({ buttonNames, onLeaveFeedback }) {
+function FeedbackOptions({ options, onLeaveFeedback }) {
     return (
         <ul className={s.buttomList}>
-            {buttonNames.map(buttton => (
+            {options.map(buttton => (
                 <li key={buttton} className={s.item}>
                     <Button
                         buttonName={buttton}
-                        onClick={onLeaveFeedback}
+                        onClick={()=>onLeaveFeedback(buttton)}
                     ></Button>
                 </li>
             ))}

@@ -3,7 +3,7 @@ import FeedbackOptions from './components/FeedbackOptions';
 import Section from './components/Section';
 import Statistics from './components/Statistics';
 
-const MockButtonFeadback = ['Good', 'Neutral', 'Bad'];
+const MockButtonFeadback = ['good', 'neutral', 'bad'];
 
 class App extends Component {
     static defaultProps = {
@@ -14,32 +14,13 @@ class App extends Component {
         neutral: 0,
         bad: 0,
     };
-    // counterFeadbacks = e => {
-    //     if (e.target.textContent === 'Good') {
-    //         this.setState({ good: this.state.good + 1 });
-    //     } else if (e.target.textContent === 'Neutral') {
-    //         this.setState({ neutral: this.state.neutral + 1 });
-    //     } else if (e.target.textContent === 'Bad') {
-    //         this.setState({ bad: this.state.bad + 1 });
-    //     }
-    // };
     
-
-    // handleRemoveContact = id =>
-    //     this.setState(({ contacts }) => ({
-    //         contacts: contacts.filter(contact => contact.id !== id),
-    //     }));
-
-    counterFeadbacks = feedback => {
-        this.setState(prevState => {
-            return {
-                [feedback]: prevState[feedback] + 1,
-            }
-    });
-    };
+   counterFeadbacks = (feedback) => {
+    this.setState((prevState) => ({
+      [feedback]: prevState[feedback] + 1
+    }));
+  };
     
-
-
     render() {
         const { good, neutral, bad } = this.state;
         const countTotalFeedback = good + neutral + bad;
@@ -50,7 +31,7 @@ class App extends Component {
             <div>
                 <Section title="Please leave feedback">
                    <FeedbackOptions
-                        buttonNames={MockButtonFeadback}
+                        options={MockButtonFeadback}
                         onLeaveFeedback={this.counterFeadbacks}
                     />
                 </Section>
