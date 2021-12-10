@@ -14,15 +14,31 @@ class App extends Component {
         neutral: 0,
         bad: 0,
     };
-    counterFeadbacks = e => {
-        if (e.target.textContent === 'Good') {
-            this.setState({ good: this.state.good + 1 });
-        } else if (e.target.textContent === 'Neutral') {
-            this.setState({ neutral: this.state.neutral + 1 });
-        } else if (e.target.textContent === 'Bad') {
-            this.setState({ bad: this.state.bad + 1 });
-        }
+    // counterFeadbacks = e => {
+    //     if (e.target.textContent === 'Good') {
+    //         this.setState({ good: this.state.good + 1 });
+    //     } else if (e.target.textContent === 'Neutral') {
+    //         this.setState({ neutral: this.state.neutral + 1 });
+    //     } else if (e.target.textContent === 'Bad') {
+    //         this.setState({ bad: this.state.bad + 1 });
+    //     }
+    // };
+    
+
+    // handleRemoveContact = id =>
+    //     this.setState(({ contacts }) => ({
+    //         contacts: contacts.filter(contact => contact.id !== id),
+    //     }));
+
+    counterFeadbacks = feedback => {
+        this.setState(prevState => {
+            return {
+                [feedback]: prevState[feedback] + 1,
+            }
+    });
     };
+    
+
 
     render() {
         const { good, neutral, bad } = this.state;
@@ -33,12 +49,7 @@ class App extends Component {
         return (
             <div>
                 <Section title="Please leave feedback">
-                    {/* <FeedbackOptions
-                        // key={but}
-                        onLeaveFeedback={this.counterFeadbacks}
-                    /> */}
-
-                    <FeedbackOptions
+                   <FeedbackOptions
                         buttonNames={MockButtonFeadback}
                         onLeaveFeedback={this.counterFeadbacks}
                     />
